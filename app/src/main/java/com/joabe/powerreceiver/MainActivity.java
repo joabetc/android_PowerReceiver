@@ -1,6 +1,7 @@
 package com.joabe.powerreceiver;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -33,5 +34,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendCustomBroadcast(View view) {
+        Intent customBroadcastIntent = new Intent(ACTION_CUSTOM_BROADCAST);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent);
     }
 }
