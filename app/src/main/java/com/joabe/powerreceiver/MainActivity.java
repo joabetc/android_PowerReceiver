@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String ACTION_CUSTOM_BROADCAST =
+            BuildConfig.APPLICATION_ID + ".ACTION_CUSTOM_BROADCAST";
+
     private CustomReceiver mReceiver = new CustomReceiver();
 
     @Override
