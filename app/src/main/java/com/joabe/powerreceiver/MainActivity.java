@@ -25,11 +25,16 @@ public class MainActivity extends AppCompatActivity {
         filter.addAction(Intent.ACTION_POWER_DISCONNECTED);
 
         this.registerReceiver(mReceiver, filter);
+
+        LocalBroadcastManager.getInstance(this)
+                .registerReceiver(mReceiver, new IntentFilter(ACTION_CUSTOM_BROADCAST));
     }
 
     @Override
     protected void onDestroy() {
         this.unregisterReceiver(mReceiver);
+        LocalBroadcastManager.getInstance(this)
+                .unregisterReceiver(mReceiver);
         super.onDestroy();
     }
 
