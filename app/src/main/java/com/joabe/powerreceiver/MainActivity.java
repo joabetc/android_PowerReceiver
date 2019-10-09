@@ -8,6 +8,8 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String ACTION_CUSTOM_BROADCAST =
@@ -41,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendCustomBroadcast(View view) {
         Intent customBroadcastIntent = new Intent(ACTION_CUSTOM_BROADCAST);
+
+        Random random = new Random();
+        int n = random.nextInt();
+        customBroadcastIntent.putExtra("number", n);
+
         LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent);
     }
 }
